@@ -1,4 +1,4 @@
-import React from 'react';
+import { useEffect, useState } from 'react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from './components/ui/tabs';
 import { CheckCircle2, Cpu, Database, Factory, Glasses, Brain, Cog } from 'lucide-react';
 import { CategoryCard } from './components/CategoryCard';
@@ -7,6 +7,7 @@ import { categories } from './data/categories';
 const semesters = [
   {
     name: "First Semester",
+    mobile: "1st Sem",
     courses: [
       "Embedded Systems Software",
       "Embedded Systems Hardware",
@@ -23,6 +24,7 @@ const semesters = [
   },
   {
     name: "Second Semester",
+    mobile: "2nd Sem",
     courses: [
       "Machine Learning and Deep Learning",
       "Automation",
@@ -36,6 +38,7 @@ const semesters = [
   },
   {
     name: "Third Semester",
+    mobile: "3rd Sem",
     courses: [
       "Advanced VR",
       "Industrial IoT",
@@ -51,6 +54,13 @@ const semesters = [
 ];
 
 function App() {
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const handleResize = () => setWindowWidth(window.innerWidth);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white font-poppins">
       <div className="container mx-auto px-4 py-12 max-w-6xl">
@@ -83,10 +93,10 @@ function App() {
         <div className="mt-16">
           <h2 className="text-3xl font-bold text-center mb-8">Detailed Curriculum</h2>
           <Tabs defaultValue="First Semester" className="w-full">
-            <TabsList className="w-full flex justify-between px-24 mb-8">
+            <TabsList className="w-[100%] overflow-hidden flex justify-between px-[5%] mb-8">
               {semesters.map((semester) => (
                 <TabsTrigger key={semester.name} value={semester.name}>
-                  {semester.name}
+                  {windowWidth > 570 ? semester.name : semester.mobile}
                 </TabsTrigger>
               ))}
             </TabsList>
