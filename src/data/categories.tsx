@@ -4,7 +4,7 @@ import { Cpu, Database, Factory, Glasses, Brain, Cog } from 'lucide-react';
 export const categories = [
   {
     icon: <Cpu className="w-8 h-8" />,
-    title: "Core Engineering",
+    title: "Embedded Systems Engineering",
     semester: "First Semester",
     courses: [
       "Embedded Systems Software",

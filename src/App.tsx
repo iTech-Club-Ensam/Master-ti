@@ -57,8 +57,9 @@ function App() {
         <header className="text-center space-y-6 mb-12">
           <h1 className="text-4xl md:text-6xl font-bold">
             <span className="line-through opacity-50 block mb-4">Immersive Technologies</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r text-[0.5em] pb-2 from-blue-400 to-cyan-300 block">more like</span>
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300">
-              Digital Systems Engineering<br />and Smart Technologies
+              Smart Systems Engineering<br />and digital transition
             </span>
           </h1>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
@@ -82,7 +83,7 @@ function App() {
         <div className="mt-16">
           <h2 className="text-3xl font-bold text-center mb-8">Detailed Curriculum</h2>
           <Tabs defaultValue="First Semester" className="w-full">
-            <TabsList className="w-full flex justify-center mb-8">
+            <TabsList className="w-full flex justify-between px-24 mb-8">
               {semesters.map((semester) => (
                 <TabsTrigger key={semester.name} value={semester.name}>
                   {semester.name}
